@@ -2,6 +2,7 @@ import pygame
 # global variables
 background_image = pygame.image.load("images/background.png")
 hero_image = pygame.image.load("images/hero.png")
+monster_image = pygame.image.load("images/monster.png")
 
 def main():
     width = 510
@@ -31,7 +32,8 @@ def main():
         screen.fill(blue_color)
         screen.blit(background_image, (0,0))
         screen.blit(hero_image, (255, 240))
-        
+        screen.blit(monster_image, (100, 400))
+
 
         # Game display
         pygame.display.update()
