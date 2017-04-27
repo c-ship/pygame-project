@@ -28,7 +28,11 @@ def main():
 
 
         # Game logic
-        monster_x += 1
+        monster_x += -10
+        # if monster_x >= width:
+        #     monster_x = 0
+        if monster_x <= 0:
+            monster_x = 500
 
         # Draw background
         screen.blit(background_image, (0,0))
