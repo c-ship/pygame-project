@@ -1,13 +1,16 @@
 import pygame
+# global variables
+background_image = pygame.image.load("images/background.png")
+hero_image = pygame.image.load("images/hero.png")
 
 def main():
-    width = 500
-    height = 500
-    blue_color = (97, 159, 182)
+    width = 510
+    height = 480
+    blue_color = (78, 94, 78)
 
     pygame.init()
     screen = pygame.display.set_mode((width, height))
-    pygame.display.set_caption('My Game')
+    pygame.display.set_caption('Cristine\'s Monster Game') # Set the window bar title
     clock = pygame.time.Clock()
 
     # Game initialization
@@ -26,9 +29,11 @@ def main():
 
         # Draw background
         screen.fill(blue_color)
+        screen.blit(background_image, (0,0))
+        screen.blit(hero_image, (255, 240))
+        
 
         # Game display
-
         pygame.display.update()
         clock.tick(60)
 
