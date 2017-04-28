@@ -37,7 +37,7 @@ class Monster:
         screen.blit(monster_image, (self.x, self.y))
 
 def main():
-    width = 510
+    width = 512
     height = 480
     background_image = pygame.image.load("images/background.png")
     hero_image = pygame.image.load("images/hero.png")
@@ -49,8 +49,8 @@ def main():
 
     hero_x = 251
     hero_y = 230
-    hero_speed_x = 20
-    hero_speed_y = 20
+    hero_speed_x = 50
+    hero_speed_y = 50
     monster = Monster()
     change_dir_countdown = 120
 
@@ -67,22 +67,21 @@ def main():
                     hero_x -= 5
                 elif event.key == KEY_RIGHT:
                     hero_x += 5
-            if hero_x > 500:
-                hero_speed_x = 0
-            if hero_x < 10:
-                hero_speed_x = 0
-            if hero_y > 300:
-                hero_speed_y = 0
-            if hero_y < 10:
-                hero_speed_y = 0
-
+            if hero_x < 32:
+                hero_x = 32
+            if hero_x > (width - 64):
+                hero_x = width - 64
+            if hero_y < 32:
+                hero_y = 32
+            if hero_y > (height - 64):
+                hero_y = height - 64
 
             if event.type == pygame.QUIT:
                 stop_game = True
 
         # Game logic
-        monster.move_monster(width, height, change_dir_countdown)
         change_dir_countdown -= 1
+        monster.move_monster(width, height, change_dir_countdown)
         if change_dir_countdown == 0:
             change_dir_countdown = 120
 
